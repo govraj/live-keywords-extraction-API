@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Live Keywords Extraction from Text.</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+input[type=text] {
+background-color: white;
+ color: white;
+ border: 1px solid red;
+ border-radius: 4px;
+ width: 400px;
+ height:100px;
+}
+input,input::-webkit-input-placeholder{
+font-size: 30px;
+line-height: 3;
+}
+</style>
+</head>
+
+<body>
+ <div>
+	<h1>Extract Keywords from Text using NLP(SpaCy and PyTextRank)</h1>
+
+     <!-- Main Input For Receiving Query to our Function-->
+    <form action="{{ url_for('get_keywords')}}"method="post">
+    	<input type="text" name="ureview" placeholder="User Review" required="required" />
+	<br>
+        <button type="submit" class="btn btn-primary btn-sm">Get Keywords</button>
+    </form>
+
+   <br>
+   <br>
+   {{ extracted_keywords}}
+<br>
+<br>
+
+ </div><br><br><br>
+<div><h2>How to use API?</h2>
+<h3>Syntax : DomainName/live_keywords/'Review Text'</h3>
+<br>
+<h2>Designed and Developed by Govinda Rajbhar</h2>
+</div>
+
+</body>
+</html>
